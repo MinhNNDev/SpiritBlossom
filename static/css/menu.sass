@@ -1,0 +1,66 @@
+@import '../mixin';
+
+.menu {
+    position: absolute;
+    @include box-dimension($width: 170, $height: 198);
+    right: 19 / 1055 * 100%;
+    bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    overflow: hidden;
+
+    .menu-btn {
+        cursor: pointer;
+        width: 100%;
+        height: 41 / 146 * 100%;
+        display: flex;
+        transform: translateX(70%);
+        transition: transform 1s linear;
+
+        &:hover {
+            transform: translateX(0%);
+            .right {
+                opacity: 1; } }
+        .left {
+            width: 53 / 170 * 100%;
+            height: 100%; }
+        .right {
+            width: 126 / 170 * 100%;
+            height: 100%;
+            position: relative;
+            left: -6%;
+            opacity: 0;
+            background-size: contain;
+            transition: opacity .25s linear; }
+        .rule {
+            background: url(/images/btn-rule.png) no-repeat;
+            background-size: contain; }
+        .login {
+            background: url(/images/btn-login.png) no-repeat;
+            background-size: contain; }
+        .history {
+            background: url(/images/btn-history.png) no-repeat;
+            background-size: contain; }
+        .inventory {
+            background: url(/images/btn-inventory.png) no-repeat;
+            background-size: contain; }
+        .rule-hover {
+            background: no-repeat url(/images/btn-rule-hover.png);
+            background-size: contain; }
+        .login-hover {
+            background: no-repeat url(/images/btn-login-hover.png);
+            background-size: contain; }
+        .inventory-hover {
+            background: no-repeat url(/images/btn-inventory-hover.png);
+            background-size: contain; }
+        .history-hover {
+            background: no-repeat url(/images/btn-history-hover.png);
+            background-size: contain;
+            // &:hover
+            //     background: no-repeat url(/images/btn-inventory-hover.png)
+ } } }            //     background-size: contain
+
+
+

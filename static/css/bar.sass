@@ -1,0 +1,83 @@
+
+@import '../mixin';
+
+.bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 13.32%;
+    width: 100%;
+    display: flex;
+    // align-items: center
+
+
+    .logo {
+        margin-left: 2.65%;
+        height: 49 / 84 * 100%;
+        width: 160 / 1055 * 100%;
+        background: url(/images/logo.png) no-repeat;
+        background-size: contain;
+        margin-top: 2%; }
+
+    .rp {
+        width: 77.26%;
+        height: 100%;
+        margin-right: 2.65%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 1.5rem;
+        padding-top: 2%;
+
+        .username {
+            text-transform: uppercase; }
+
+        .space {
+            margin: 0 2%; }
+
+        .user-rp {
+            background: url(/images/rp.png) no-repeat;
+            background-size: contain;
+            @include box-dimension($width: 117, $height: 40, $parent-width: 815, $parent-height: 85);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center; }
+        .rp-plus {
+            background: url(/images/rp-plus.png) no-repeat;
+            background-size: contain;
+            @include box-dimension($width: 31, $height: 31, $parent-width: 815, $parent-height: 85);
+            position: relative;
+            left: -4%;
+            top: -4%;
+            cursor: pointer; }
+        a {
+            color: #123131;
+            &:hover {
+                color: #7a5dc5; } } } }
+
+.top {
+    position: absolute;
+    top: 3.91%;
+    left: 3.79%;
+    right: 3.79%;
+    height: 100%;
+    width: 100%;
+
+    .top-btn-list {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 79.43%;
+
+        .btn-rule {
+            height: 8.77%;
+            width: 13.64%;
+            background: url(/images/btn-rule.png) no-repeat;
+            background-size: 100% 100%;
+            background-position-y: center;
+            cursor: pointer;
+            &:hover {
+                background: url(/images/btn-rule-hover.png) no-repeat;
+                background-position-y: center;
+                background-size: 100% 100%; } } } }

@@ -1,0 +1,243 @@
+@import '../mixin';
+
+.character-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    // display: flex
+    // justify-content: space-between
+
+    @keyframes gift-animate {
+        0%, 50%, 100% {
+            transform: rotate(0); }
+        25% {
+            transform: rotate(5deg); }
+        75% {
+            transform: rotate(-5deg); } }
+
+    .gift {
+        background: url(/images/gift-btn.png) no-repeat;
+        background-size: 100% 100%;
+        width: 10.61%;
+        height: 192 / 638 *100%;
+        position: absolute;
+        left: 25.02%;
+        top: -3%;
+        cursor: pointer;
+        transform-origin: top;
+        animation: gift-animate 3s linear infinite;
+
+        &:hover {
+            background: url(/images/gift-btn-hover.png) no-repeat;
+            background-size: 100% 100%; } }
+
+    .character-list {
+        position: absolute;
+        left: -24%;
+        background: url(/images/circle.png) no-repeat;
+        background-position-x: right;
+        background-size: contain;
+        @include box-dimension(403, 403);
+        top: 5.97%;
+        // border: 1px black solid
+        border-radius: 50%;
+        transition: transform 1s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .single-character {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            // border: 1px black solid
+            box-sizing: border-box;
+            transition: transform 1s;
+            box-sizing: border-box;
+            // border: 1px red solid
+
+            .character {
+                background: url(/images/character-thum-bg.png) no-repeat;
+                background-size: 100% 100%;
+                background-position-y: center;
+                @include box-dimension($width: 60, $height: 60, $parent-width: 201.5, $parent-height: 201.5);
+                margin: -64% auto 0;
+                position: relative;
+                transition: transform 1s;
+                display: flex;
+                align-items: center;
+
+                .name {
+                    @include box-dimension($width: 154, $height: 42, $parent-width: 60, $parent-height: 60);
+                    background: url(/images/character-name.png) no-repeat;
+                    background-size: contain;
+                    position: absolute;
+                    left: 45%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 1.3rem;
+                    line-height: 4.2rem;
+                    cursor: pointer;
+                    padding-left: 90%;
+                    text-transform: uppercase; }
+
+                .thumbnail {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    @include box-dimension($width: 53, $height: 53, $parent-width: 60, $parent-height: 60);
+                    margin: 0 auto;
+                    border-radius: 50%;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: url(/images/character-thum-hover.png) no-repeat;
+                        background-size: contain;
+                        @include box-dimension($width: 64, $height: 64, $parent-width: 60, $parent-height: 60);
+                        padding: 33.5%;
+                        left: -28%; } }
+
+                &.active {
+                    margin: -75% auto 0;
+                    background: url(/images/character-thum-bg-active.png) no-repeat;
+                    background-size: contain;
+                    @include box-dimension($width: 96, $height: 96, $parent-width: 201.5, $parent-height: 201.5);
+
+                    .name {
+                        @include box-dimension($width: 205, $height: 62, $parent-width: 96, $parent-height: 96);
+                        background: url(/images/character-name-active.png) no-repeat;
+                        background-size: contain;
+                        line-height: 6.2rem;
+                        font-size: 1.5rem;
+                        font-weight: 800;
+                        left: 16%; }
+
+                    .thumbnail {
+                        @include box-dimension($width: 84, $height: 84, $parent-width: 96, $parent-height: 96);
+                        background-size: contain;
+
+                        &:hover {
+                            background: url(/images/character-thum-bg-active-hover.png) no-repeat;
+                            background-size: contain;
+                            @include box-dimension($width: 88, $height: 88, $parent-width: 96, $parent-height: 96);
+                            left: -23%;
+                            padding: 28%; } } } } } }
+    @keyframes fade-in {
+        0% {
+            opacity: 1; }
+        50% {
+            opacity: 0.5; }
+        100% {
+            opacity: 1; } }
+
+    @keyframes scaling {
+        0%, 100% {
+            transform: scale(1); }
+        50% {
+            transform: scale(1.05); } }
+
+    .selected-character {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+
+        &.appear {
+            .character-img {
+                animation: fade-in .5s linear; } }
+
+        .character-img {
+            width: 95.54%;
+            animation: scaling 10s linear infinite;
+            cursor: pointer; }
+
+        .character-tooltip {
+            @include box-dimension(266, 289);
+            background: url(/images/hover-champion-bg.png);
+            background-size: contain;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                height: 100%;
+                box-sizing: border-box;
+                padding: 7%;
+
+                .reward {
+                    width: 100%;
+                    height: 55 / 266 * 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    color: #f2dabd;
+                    align-items: center;
+                    font-size: 2rem;
+
+                    .level {
+                        height: 100%;
+                        width: 55 / 266 * 100%; }
+                    .level-1 {
+                        background: url('/images/popup-champion-favor-1.png') no-repeat;
+                        background-size: contain; }
+                    .level-2 {
+                        background: url('/images/popup-champion-favor-2.png') no-repeat;
+                        background-size: contain; }
+                    .level-3 {
+                        background: url('/images/popup-champion-favor-3.png') no-repeat;
+                        background-size: contain; }
+                    .level-4 {
+                        background: url('/images/popup-champion-favor-4.png') no-repeat;
+                        background-size: contain; }
+                    .level-5 {
+                        background: url('/images/popup-champion-favor-5.png') no-repeat;
+                        background-size: contain; }
+                    img {
+                        height: 100%;
+                        width: 55 / 266 * 100%; } } } }
+
+
+        .favorite-progress {
+            position: absolute;
+            width: 91.37%;
+            height: 17.39%;
+            bottom: 12.85%;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            background-position-y: center;
+
+            // height: 10.52vw
+
+            &.favorite-progress-0 {
+                background: url(/images/favorite-progress-0.png) no-repeat;
+                background-size:  contain;
+                background-position-y: center; }
+
+            &.favorite-progress-1 {
+                background: url(/images/favorite-progress-1.png) no-repeat;
+                background-size: contain;
+                background-position-y: center; }
+            &.favorite-progress-2 {
+                background: url(/images/favorite-progress-2.png) no-repeat;
+                background-size: contain;
+                background-position-y: center; }
+            &.favorite-progress-3 {
+                background: url(/images/favorite-progress-3.png) no-repeat;
+                background-size: contain;
+                background-position-y: center; }
+            &.favorite-progress-4 {
+                background: url(/images/favorite-progress-4.png) no-repeat;
+                background-size: contain;
+                background-position-y: center; }
+            &.favorite-progress-5 {
+                background: url(/images/favorite-progress-5.png) no-repeat;
+                background-size: contain;
+                background-position-y: center; } } } }
